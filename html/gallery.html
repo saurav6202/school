@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - D.P.S Public School</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        .h2Con {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 7rem 0 2rem 0;
+            color: #333;
+            border-bottom: 3px solid #333;
+            padding: 0 2rem;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
+
+
+        .gallery img:hover {
+            transform: scale(1.03);
+
+        }
+
+        .con {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .imgBox {
+            height: 32rem;
+            width: 50rem;
+            background: rgb(232, 250, 237);
+            background: linear-gradient(#bffdcd, #1a601a);
+            z-index: 10;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            position: relative;
+        }
+
+        .imgBox img {
+            object-fit: cover;
+            width: 50%;
+            border-radius: 0.5rem;
+        }
+
+        .imgBoxCon {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            z-index: 100;
+
+        }
+
+        .imgBox .fa-xmark {
+            font-size: 1.7rem;
+            top: 1.3rem;
+            right: 2rem;
+            cursor: pointer;
+            position: absolute;
+            transition: all 0.3s ease;
+            height: 2.2rem;
+            width: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: rgb(22, 3, 90);
+        }
+
+        .fa-xmark:hover {
+            background-color: #bbd5f4;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+            gap: 0.5rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border-radius: 0.3rem;
+        }
+
+        .gallery {
+            padding: 0.5rem;
+        }
+
+        .fancy-btn {
+            margin: 2rem 0 3rem 85vw;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <img src="/images/1.jpeg" alt="logo">
+            <p>D.P.S Public School</p>
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a style="margin-left: 1rem;" href="/html/academics.html">Academics</a></li>
+                <li><a style="margin-left: 1rem;" href="/html/contact.html">Contact</a>
+                </li>
+            </ul>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </nav>
+    <div class="body">
+        <div class="h2Con">
+            <h2>Image Gallery</h2>
+        </div>
+        <div class="con">
+            <div class="gallery" id="gallery"></div>
+            <button class="backBtn fancy-btn"><a href="/">Back</a></button>
+        </div>
+        <div class="imgBoxCon">
+            <div class="imgBox"></div>
+        </div>
+    </div>
+    <footer class="footer"></footer>
+    <script src="../js/main.js"></script>
+    <script>
+        const imgBoxCon = document.querySelector(".imgBoxCon");
+        const galleryCon = document.querySelector("#gallery");
+        if (galleryCon) {
+            for (let i = 2; i <= 36; i++) {
+                const galleryImg = document.createElement("img");
+                galleryImg.src = `/images/${i}.jpeg`;
+                galleryCon.appendChild(galleryImg);
+            }
+        }
+
+        async function showImgBox() {
+            const images = Array.from(document.querySelectorAll(".gallery img"));
+            await images.forEach(img => {
+                img.addEventListener("click", (e) => {
+                    document.body.style.overflow = "hidden";
+                    galleryCon.appendChild(img);
+                    imgBoxCon.style.display = "flex";
+                    const imgBox = document.querySelector(".imgBox");
+                    const icon = document.createElement("i");
+                    icon.className = "fa-solid fa-xmark";
+                    imgBox.innerHTML = "";
+                    const cloneImg = img.cloneNode(true);
+                    imgBox.appendChild(cloneImg);
+                    imgBox.appendChild(icon);
+                    icon.addEventListener("click", e => {
+                        imgBoxCon.style.display = "none";
+                        document.body.style.overflow = "auto"
+                    })
+                })
+            });
+        }
+        showImgBox()
+
+    </script>
+</body>
+
+</html>

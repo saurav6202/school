@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - D.P.S. Public School</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #cdefad;
+        }
+
+        .main {
+            flex: 1;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 40px;
+            background: #cdefad;
+            border-radius: 12px;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info,
+        .contact-form {
+            flex: 1 1 45%;
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <div class="left">
+                    <img src="/images/1.jpeg" alt="logo">
+                    <p>D.P.S Public School</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a style="margin-left: 1rem;" href="/html/gallery.html">Gallery</a>
+                        <li><a style="margin-left: 1rem;" href="/html/academics.html">Academics</a></li>
+                        </li>
+                    </ul>
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <div class="contact-container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <p><strong>Address:</strong><br>HILSA, Hilsa, India, Bihar</p>
+                        <p><strong>Phone:</strong><br>+91-7070152088, +91-7261046440</p>
+                        <p><strong>Email:</strong><br><a style="color: black;"
+                                href="mailto:email@dpspublicschool.com">email@dpspublicschool.com</a></p>
+                        <p><strong>Facebook:</strong><br>
+                            <a style="color: black;" href="https://www.facebook.com/dpshilsa/"
+                                target="_blank">facebook.com/dpspublicschool</a>
+                        </p>
+                        <iframe src="https://www.google.com/maps?q=DPS%20Public%20School&output=embed"></iframe>
+                    </div>
+
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <form action="#" method="POST">
+                            <input type="text" name="name" placeholder="Your Name" required />
+                            <input type="email" name="email" placeholder="Your Email" required />
+                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer"></footer>
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
