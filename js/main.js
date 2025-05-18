@@ -17,7 +17,7 @@ animatedElements.forEach(el => {
 });
 
 
-fetch("/html/footer.html").then(res => res.text()).then(data => document.querySelector("footer").innerHTML = data);
+fetch("html/footer.html").then(res => res.text()).then(data => document.querySelector("footer").innerHTML = data);
 
 const navBtn = document.querySelector("nav .right i");
 const navUl = document.querySelector("nav .right ul");
